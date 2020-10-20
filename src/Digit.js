@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Pixel from './Pixel';
 import randomColor from 'randomcolor';
 import { ThemeContext } from './ThemeContext';
@@ -22,7 +22,13 @@ const colors = randomColor({count: 15});
 const Digit = ({digit}) => {
     const theme = useContext(ThemeContext);
 
-    const pixels = digits[digit].map((binary, index) => {return {active: binary, color: theme['🎉'] ? colors[index] : "#000" }});
+    const [colorState, setColorState] = useState(colors);
+
+    useEffect(() => {
+        setColorState(randomColor({count: 15}));
+    }, [theme, setColorState]);
+
+    const pixels = digits[digit].map((binary, index) => {return {active: binary, color: theme['🎉'] ? colorState[index] : "#000" }});
 
     return (
         <div className="digit">

@@ -102,3 +102,9 @@
     opacity: .3;
   }
 }
+
+@media (prefers-reduced-motion) {
+  .clock-clone  {
+    display: none;
+  }
+}

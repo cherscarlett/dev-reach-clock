@@ -25,10 +25,10 @@ const Clock = () => {
 
     return (
         <div className="clock-container">
-            <div className="clock">
+            <div className="clock" aria-label={`The time is ${hours}:${minutes}:${seconds}`}>
                 {timeString.map((digit, index) => <Digit key={index} digit={digit} />)}
             </div>
-            <div className={`clock clock-clone ${theme['🎉'] ? 'clock-clone-party' : 'clock-clone-business'}`}>
+            <div role="presentation" className={`clock clock-clone ${theme['🎉'] ? 'clock-clone-party' : 'clock-clone-business'}`}>
                 {timeString.map((digit, index) => <Digit key={index} digit={digit} />)}
             </div>
         </div>
