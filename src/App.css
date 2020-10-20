@@ -1,0 +1,104 @@
+.app {
+  background-color: #e3e3e3;
+  height: 100vh;
+  width: 100vw;
+  transition: .1s;
+}
+
+.app-party {
+  background-color: #222;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60px;
+  height: 34px;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid #222;
+  transition: .1s;
+  padding: 0 9px;
+}
+
+.theme-switch:after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background-color: #222;
+  height: 30px;
+  width: 30px;
+  right: 1px;
+  z-index: 1;
+  transition: .1s;
+}
+
+.theme-switch-party:after {
+  right: 27px;
+  background-color: #e3e3e3;
+}
+
+.theme-switch span {
+  position: relative;
+  z-index: 3;
+  filter: grayscale(0%) contrast(1);
+  transition: .1s;
+}
+
+.theme-switch span:not(.theme-active) {
+  filter: grayscale(100%) contrast(1.5);
+}
+
+.theme-switch-party {
+  background-color: #222;
+  border: 1px solid #888;
+}
+
+.clock {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  position: absolute;
+}
+
+
+.clock-clone {
+  opacity: 0;
+  transition: .1s;
+}
+
+.clock-clone-party {
+  animation: neon .08s ease-in-out infinite alternate;
+}
+
+.clock-container {
+  position: relative;
+  transform: scale(.5);
+}
+
+.digit {
+	width: 60px;
+}
+
+.digit:not(:last-child) {
+	margin-right: 20px;
+}
+
+.pixel {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+
+@keyframes neon {
+  from {
+    filter: drop-shadow(0 0 6px rgba(202,228,225,0.92)) blur(15px);
+    opacity: .2;
+  }
+  to {
+    filter: drop-shadow(0 0 6px rgba(202,228,225,0.42)) blur(1px);
+    opacity: .3;
+  }
+}
